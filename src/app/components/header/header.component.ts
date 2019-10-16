@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(httpServ: HttpService) { }
 
   ngOnInit() {
   }
+
+getBlogs() {
+  this.httpServ.getBlogs.subscribe(res => {
+    console.log(res);
+  })
+}
 
 }
