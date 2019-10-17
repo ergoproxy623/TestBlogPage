@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
+import {Router} from '@angular/router';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Blogs} from '../interface/blogs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+
 
   constructor(
        private http: HttpClient,
@@ -11,9 +17,8 @@ export class HttpService {
    ) {
    }
 
-   private _api = {
-       host: environment.api,
-       auth: '/loginAdmin',
+   private urlRoute = {
+       posts: '/posts',
        resetPass: '/password/reset',
        updPass: '/updatePassword',
        user: '/user',
@@ -25,20 +30,18 @@ export class HttpService {
        image: '/image',
    };
 
-   get api() {
-       return this._api;
-       console.log(this._api);
-   }
+   private url = "http://my-json-server.typicode.com/orlovskyalex/jellyfish-fake-rest-server/posts";
 
 // change password
-   updPass( updPass: UpdPass ) {
-       return this.http.post(
-           `${ this.api.host }${ this.api.updPass }`,
-           updPass,
-       );
-   }
 
-   getBlogs() {
-     return this.http.get(`${this._api.host}`)
-   }
+
+
+    getSmartphone(): Observable<HttpResponse<Blogs[]>> {
+        return this.http.get<Blogs[]>(
+
+            this.url, { observe: 'response' });
+    }
+
+
 }
+
