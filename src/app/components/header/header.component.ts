@@ -12,13 +12,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  name: string = "Name";
 
-getBlogs() {
-  this.httpServ.getSmartphone().subscribe( (res: any) => {
-    console.log(res)
-  },
-      (err: any) => {console.log(err)})
-}
 
 }

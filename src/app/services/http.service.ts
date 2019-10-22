@@ -3,7 +3,9 @@ import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
 import {HttpClient, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Blogs} from '../interface/blogs';
+import {Posts} from '../interface/posts';
+import {Comments} from '../interface/comments';
+import {Users} from '../interface/users';
 
 @Injectable({
   providedIn: 'root'
@@ -19,27 +21,36 @@ export class HttpService {
 
    private urlRoute = {
        posts: '/posts',
-       resetPass: '/password/reset',
-       updPass: '/updatePassword',
-       user: '/user',
-       video: '/video',
-       video1: '/showVideo1',
-       video2: '/showVideo2',
-       all: '/allVideosAllUsers',
-       preview: '/preview',
-       image: '/image',
+       users: '/users',
+       comments: '/comments',
+       db: '/db',
+
    };
 
-   private url = "http://my-json-server.typicode.com/orlovskyalex/jellyfish-fake-rest-server/posts";
+   private url = "http://my-json-server.typicode.com/orlovskyalex/jellyfish-fake-rest-server";
 
 // change password
 
 
 
-    getSmartphone(): Observable<HttpResponse<Blogs[]>> {
-        return this.http.get<Blogs[]>(
+    getPosts(): Observable<HttpResponse<Posts[]>> {
+        return this.http.get<Posts[]>(
 
-            this.url, { observe: 'response' });
+            `${this.url}${this.urlRoute.posts }`, { observe: 'response' });
+    }
+
+
+    getUsers(): Observable<HttpResponse<Users[]>> {
+        return this.http.get<Users[]>(
+
+            `${this.url}${this.urlRoute.users }`, { observe: 'response' });
+    }
+
+
+    getComments(): Observable<HttpResponse<Comments[]>> {
+        return this.http.get<Comments[]>(
+
+            `${this.url}${this.urlRoute.comments }`, { observe: 'response' });
     }
 
 

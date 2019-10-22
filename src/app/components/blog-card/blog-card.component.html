@@ -1,0 +1,26 @@
+
+<mat-card class="example-card" *ngFor="let post of posts" (sort)="sortPosts($event)">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{userName}} </mat-card-title>
+        <mat-card-subtitle >{{post.title}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p>
+           {{ post.body}}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <p>
+            Comments
+            <mat-icon matBadge="15" matBadgeColor="warn">chat_bubble_outline</mat-icon>
+            <!-- Include text description of the icon's meaning for screen-readers -->
+            <span class="cdk-visually-hidden">
+      Example with a home icon with overlaid badge showing the number 15
+    </span>
+        </p>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+</mat-card>

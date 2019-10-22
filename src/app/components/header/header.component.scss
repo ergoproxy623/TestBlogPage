@@ -1,4 +1,14 @@
-button {
-  width: 200px;
-  height: auto;
-};
+.mat-toolbar {
+  margin:  10px  auto;
+  height: 100px;
+  width: 95vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-around;
+  background: #424242 !important;
+  .mat-button {
+    background: greenyellow;
+  }
+}

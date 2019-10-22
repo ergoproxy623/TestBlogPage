@@ -5,18 +5,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatBadgeModule, MatCardModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
+import { BlogCardComponent } from './components/blog-card/blog-card.component';
+import { AuthorComponent } from './components/author/author.component';
+import { BodyComponent } from './components/body/body.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    BlogCardComponent,
+    AuthorComponent,
+    BodyComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        MatBadgeModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

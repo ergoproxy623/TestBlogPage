@@ -1,0 +1,22 @@
+<div class="authorBlock">
+    <mat-toolbar >
+        <p>Авторы нашего блога</p>
+    </mat-toolbar>
+    <div class="authorBlockItem"  >
+        <div class="wrapper" *ngFor="let user of users" (click)="getPostForUser(user)">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png" alt="foto author" >
+            <p class="userName"> {{ user.username }} </p>
+        </div>
+
+    </div>
+
+    <mat-toolbar>
+        <p>Follow me</p>
+        <span><i class="fab fa-facebook"></i></span>
+        <span><i class="fab fa-twitter-square"></i></span>
+        <span><i class="fab fa-google-plus-g"></i></span>
+    </mat-toolbar>
+
+
+</div>
+
