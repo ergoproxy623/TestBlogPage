@@ -12,3 +12,14 @@
   display: flex;
   flex-direction: row;
 }
+ul {
+  list-style-type: none;
+}
+.comments {
+  border-radius: 4px;
+  background: #515151;
+}
+li {
+  margin: 3px;
+  border-bottom: 1px solid white;
+}

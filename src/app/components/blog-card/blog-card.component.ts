@@ -14,29 +14,32 @@ export class BlogCardComponent implements OnInit {
   comments: Comments [];
   userName: string;
 
-
   constructor(private httpServ: HttpService) {
   }
 
   ngOnInit() {
-    this.getComments();
   }
 
 
-  getBlogs() {
+  getBlogs(event) {
     this.httpServ.getPosts().subscribe((res: any) => {
+
           console.log(res);
           this.posts = res.body;
+          this.posts = this.posts.filter( a => a.author === event.id);
         },
         (err: any) => {
           console.log(err);
         });
   }
 
-  getComments() {
+  getComments(post) {
     this.httpServ.getComments().subscribe((res: any) => {
           console.log(res);
+          console.log(post.id);
+
           this.comments = res.body;
+          this.comments = this.comments.filter(a => a.post === post.id);
         },
         (err: any) => {
           console.log(err);
@@ -48,15 +51,16 @@ export class BlogCardComponent implements OnInit {
 
 
  sortArr(event) {
-      this.getBlogs();
+      this.getBlogs(event);
       this.userName = event.username;
-      this.posts = this.posts.filter( a => a.author === event.id);
+
       console.log(this.posts);
 
 }
 
-sortComments() {
- console.log('sort');
+sortComments(post) {
+    console.log('sort');
+    this.getComments(post);
 }
 
 }
