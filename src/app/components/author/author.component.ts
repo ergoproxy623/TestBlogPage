@@ -8,14 +8,16 @@ import {HttpService} from '../../services/http.service';
   styleUrls: ['./author.component.scss']
 })
 export class AuthorComponent implements OnInit {
-@Output() sort = new EventEmitter<object>();
+@Output() sort: EventEmitter<any> = new EventEmitter();
+@Output() close: EventEmitter<any> = new EventEmitter();
+
 
   users: Users[];
 
   constructor(private httpServ: HttpService) { }
 
   ngOnInit() {
-    this.getUsers()
+    this.getUsers();
   }
 
   getUsers() {
@@ -24,8 +26,8 @@ export class AuthorComponent implements OnInit {
           this.users = res.body;
         },
         (err: any) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
   }
 
   getPostForUser(event) {
@@ -34,5 +36,9 @@ export class AuthorComponent implements OnInit {
       console.log('end');
 
   }
+
+    toggle(event) {
+            this.sort.emit(event);
+        }
 
 }

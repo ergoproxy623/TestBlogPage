@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HttpService} from '../../services/http.service';
 import {Posts} from '../../interface/posts';
 import {Comments} from '../../interface/comments';
@@ -12,14 +12,13 @@ import {Comments} from '../../interface/comments';
 export class BlogCardComponent implements OnInit {
   posts: Posts [];
   comments: Comments [];
-
+  userName: string;
 
 
   constructor(private httpServ: HttpService) {
   }
 
   ngOnInit() {
-    this.getBlogs();
     this.getComments();
   }
 
@@ -30,8 +29,8 @@ export class BlogCardComponent implements OnInit {
           this.posts = res.body;
         },
         (err: any) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
   }
 
   getComments() {
@@ -40,17 +39,24 @@ export class BlogCardComponent implements OnInit {
           this.comments = res.body;
         },
         (err: any) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
 
 
   }
 
 
 
- sortPosts(event) {
-      console.log(event);
-      console.log("srabotalo");
+ sortArr(event) {
+      this.getBlogs();
+      this.userName = event.username;
+      this.posts = this.posts.filter( a => a.author === event.id);
+      console.log(this.posts);
+
+}
+
+sortComments() {
+ console.log('sort');
 }
 
 }

@@ -9,7 +9,7 @@ import {MatBadgeModule, MatCardModule, MatIconModule, MatToolbarModule} from '@a
 import {MatButtonModule} from '@angular/material/button';
 import { BlogCardComponent } from './components/blog-card/blog-card.component';
 import { AuthorComponent } from './components/author/author.component';
-import { BodyComponent } from './components/body/body.component';
+
 
 
 
@@ -20,7 +20,6 @@ import { BodyComponent } from './components/body/body.component';
     HeaderComponent,
     BlogCardComponent,
     AuthorComponent,
-    BodyComponent
   ],
     imports: [
         BrowserModule,

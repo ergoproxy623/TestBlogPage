@@ -3,7 +3,7 @@
         <p>Авторы нашего блога</p>
     </mat-toolbar>
     <div class="authorBlockItem"  >
-        <div class="wrapper" *ngFor="let user of users" (click)="getPostForUser(user)">
+        <div class="wrapper" *ngFor="let user of users" (click)="toggle(user)">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Arthur_Conan_Doyle_by_Walter_Benington%2C_1914.png" alt="foto author" >
             <p class="userName"> {{ user.username }} </p>
         </div>
